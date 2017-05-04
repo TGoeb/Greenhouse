@@ -9,10 +9,14 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class Main extends AppCompatActivity {
 
     private final String TAG = this.getClass().getName();
+    private TextView txtConcat;
+    private int insideTemp;
+    private int outsideTemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,15 +25,13 @@ public class Main extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         Log.i(TAG, "onCreate");
+
+        insideTemp = 70;
+        outsideTemp = 60;
+
+        txtConcat = (TextView) findViewById(R.id.textView);
+        txtConcat.setText("Inside Temperature: " + insideTemp + "\nOutsideTemperature: " + outsideTemp);
     }
 
     @Override
