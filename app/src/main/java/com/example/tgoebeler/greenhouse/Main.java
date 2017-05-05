@@ -17,7 +17,6 @@ public class Main extends AppCompatActivity {
     private TextView txtConcat;
     private int insideTemp;
     private int outsideTemp;
-    public String deleteMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
