@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Greenhouse</string>
-    <string name="large_text">
-        "Inside Temperature\nOutside Temperature"
-    </string>
+
+    <string name="temperature">"Inside Temperature\nOutside Temperature"</string>
+    <string name="humidity">"Inside Humidity\nOutside Humidity"</string>
+
     <string name="action_settings">Settings</string>
 </resources>

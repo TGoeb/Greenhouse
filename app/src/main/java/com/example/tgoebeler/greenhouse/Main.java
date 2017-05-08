@@ -14,9 +14,13 @@ import android.widget.TextView;
 public class Main extends AppCompatActivity {
 
     private final String TAG = this.getClass().getName();
-    private TextView txtConcat;
+    private TextView tempTxt;
     private int insideTemp;
     private int outsideTemp;
+
+    private TextView humidTxt;
+    private int insideHumid;
+    private int outsideHumid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +34,14 @@ public class Main extends AppCompatActivity {
         insideTemp = 70;
         outsideTemp = 60;
 
-        txtConcat = (TextView) findViewById(R.id.textView);
-        txtConcat.setText("Inside Temperature: " + insideTemp + "\nOutsideTemperature: " + outsideTemp);
+        tempTxt = (TextView) findViewById(R.id.textView);
+        tempTxt.setText("Inside Temperature: " + insideTemp + "\nOutside Temperature: " + outsideTemp);
+
+        insideHumid = 50;
+        outsideHumid = 40;
+
+        humidTxt = (TextView) findViewById(R.id.textView2);
+        humidTxt.setText("Inside Humidity: "+ insideHumid + "\nOutside Humidity: " + outsideHumid);
     }
 
     @Override
