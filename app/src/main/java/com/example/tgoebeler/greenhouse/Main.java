@@ -1,12 +1,9 @@
 package com.example.tgoebeler.greenhouse;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -14,7 +11,7 @@ import android.widget.TextView;
 public class Main extends AppCompatActivity {
 
     private final String TAG = this.getClass().getName();
-    private TextView tempTxt;
+    private TextView tempText;
     private int insideTemp;
     private int outsideTemp;
 
@@ -31,17 +28,11 @@ public class Main extends AppCompatActivity {
 
         Log.i(TAG, "onCreate");
 
-        insideTemp = 70;
-        outsideTemp = 60;
+        tempText = (TextView) findViewById(R.id.tempText);
+        setTempTxt(70, 60);
 
-        tempTxt = (TextView) findViewById(R.id.textView);
-        tempTxt.setText("Inside Temperature: " + insideTemp + "\nOutside Temperature: " + outsideTemp);
-
-        insideHumid = 50;
-        outsideHumid = 40;
-
-        humidTxt = (TextView) findViewById(R.id.textView2);
-        humidTxt.setText("Inside Humidity: "+ insideHumid + "\nOutside Humidity: " + outsideHumid);
+        humidTxt = (TextView) findViewById(R.id.humidityText);
+        setHumidTxt(50, 40);
     }
 
     @Override
@@ -63,5 +54,17 @@ public class Main extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setTempTxt(int newInside, int newOutside) {
+        insideTemp = newInside;
+        outsideTemp = newOutside;
+        tempText.setText("Inside Temperature: "+ insideTemp + "\nOutside Temperature: " + outsideTemp);
+    }
+
+    public void setHumidTxt(int newInside, int newOutside) {
+        insideHumid = newInside;
+        outsideHumid = newOutside;
+        humidTxt.setText("Inside Humidity: "+ insideHumid + "\nOutside Humidity: " + outsideHumid);
     }
 }
