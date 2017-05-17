@@ -1,5 +1,6 @@
 package com.example.tgoebeler.greenhouse;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 public class Main extends AppCompatActivity {
 
@@ -18,6 +20,8 @@ public class Main extends AppCompatActivity {
     private TextView humidTxt;
     private int insideHumid;
     private int outsideHumid;
+
+    private VideoView videoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,11 @@ public class Main extends AppCompatActivity {
 
         humidTxt = (TextView) findViewById(R.id.humidityText);
         setHumidTxt(50, 40);
+
+        videoView = (VideoView) findViewById(R.id.videoView);
+        //setContentView(videoView);
+        videoView.setVideoURI(Uri.parse("https://www.youtube.com/watch?v=qzMQza8xZCc"));
+        videoView.start();
     }
 
     @Override
