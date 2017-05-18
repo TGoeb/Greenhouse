@@ -1,5 +1,6 @@
 package com.example.tgoebeler.greenhouse;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -21,7 +24,7 @@ public class Main extends AppCompatActivity {
     private int insideHumid;
     private int outsideHumid;
 
-    private VideoView videoView;
+    private Button webcamButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +41,16 @@ public class Main extends AppCompatActivity {
         humidTxt = (TextView) findViewById(R.id.humidityText);
         setHumidTxt(50, 40);
 
-        videoView = (VideoView) findViewById(R.id.videoView);
-        //setContentView(videoView);
-        videoView.setVideoURI(Uri.parse("https://www.youtube.com/watch?v=qzMQza8xZCc"));
-        videoView.start();
+        webcamButton = (Button) findViewById(R.id.webcamButton);
+        webcamButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.youtube.com/watch?v=qzMQza8xZCc")));
+                Log.i("Video", "Video Playing....");
+
+            }
+        });
     }
 
     @Override
