@@ -17,14 +17,17 @@ public class Main extends AppCompatActivity {
 
     private final String TAG = this.getClass().getName();
     private TextView tempText;
-    private int insideTemp;
-    private int outsideTemp;
+    private String insideTemp;
+    private String outsideTemp;
 
     private TextView humidTxt;
-    private int insideHumid;
-    private int outsideHumid;
+    private String insideHumid;
+    private String outsideHumid;
 
     private Button webcamButton;
+
+    private Database database;
+    private String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +39,10 @@ public class Main extends AppCompatActivity {
         Log.i(TAG, "onCreate");
 
         tempText = (TextView) findViewById(R.id.tempText);
-        setTempTxt(70, 60);
+        setTempTxt("70", "60");
 
         humidTxt = (TextView) findViewById(R.id.humidityText);
-        setHumidTxt(50, 40);
+        setHumidTxt("50", "40");
 
         webcamButton = (Button) findViewById(R.id.webcamButton);
         webcamButton.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +54,10 @@ public class Main extends AppCompatActivity {
 
             }
         });
+
+        Database database = new Database();
+        text = database.getJSON("http://ephemeraltech.com/demo/android_tutorial20.php", 10000);
+        setHumidTxt("50", text);
     }
 
     @Override
@@ -74,13 +81,13 @@ public class Main extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void setTempTxt(int newInside, int newOutside) {
+    public void setTempTxt(String newInside, String newOutside) {
         insideTemp = newInside;
         outsideTemp = newOutside;
         tempText.setText("Inside Temperature: "+ insideTemp + "\nOutside Temperature: " + outsideTemp);
     }
 
-    public void setHumidTxt(int newInside, int newOutside) {
+    public void setHumidTxt(String newInside, String newOutside) {
         insideHumid = newInside;
         outsideHumid = newOutside;
         humidTxt.setText("Inside Humidity: "+ insideHumid + "\nOutside Humidity: " + outsideHumid);
