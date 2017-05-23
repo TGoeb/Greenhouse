@@ -1,0 +1,6 @@
+Change Log #1
+May 5, 2017
+
+-NestedScrollView for the main app screen
+-LinearLayout to contain various information
+-TextView for the temperature sensors

@@ -1,0 +1,9 @@
+Journal Entry #1
+May 5, 2017
+
+The first thing I did while starting this project was creating a scrolling activity, which made a
+NestedScrollView by default.  NestedScrollViews can only contain one element, so I had to put a
+LinearLayout inside it, then put any other elements I needed inside the Linear Layout.
+Next I added a TextView, in which I placed text for the inside and outside humidity.  I tried to add
+an additional text view for the humidity, as well as an image, but neither one showed up when
+running the app.

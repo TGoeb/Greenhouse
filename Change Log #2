@@ -1,0 +1,6 @@
+Change Log #1
+May 10, 2017
+
+-Switched from NestedScrollView to ScrollView
+-TextView for humidity sensors
+-Placeholder image for the graph of the temperature

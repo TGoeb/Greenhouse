@@ -1,0 +1,10 @@
+Journal Entry #2
+May 12, 2017
+
+I learned that the NestedScrollView should actually be a ScrollView, and changing that allowed me to
+see multiple elements inside the LinearLayout.  I added an image of a graph of temperature vs time,
+and once I get the Raspiviv API working it will make a graph from real data for me.  Beneath the
+image I added another TextView which displays inside and outside humidity.
+I added a method which changes the TextViews, so that when I get data from Raspiviv, I can easily
+pass it in and change the text.  After setting up and testing that method, I began setting up a
+Raspberry Pi.

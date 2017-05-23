@@ -1,0 +1,17 @@
+Journal Entry #3
+May 19, 2017
+
+I spent a few days setting up a Raspberry Pi and trying to install Raspiviv, but due to hardware
+limitations, I was never able to get it fully working.  So eventually I decided to move on and
+begin working with the webcam.  I looked at a few different ways people had embedded videos in
+Android apps, and many recommended using a YouTube API.  However, there were many steps I would have
+had to go through, such as registering my app and signing up as a Google developer, and with limited
+time left I decided to just add a link to a YouTube video.
+My solution was to have the webcam stream a private video to YouTube, so if the owner of the video
+was logged into the Android device, they could still view it.  Clicking on the "Webcam" button
+currently brings the user to a live feed from the International Space Station, which could be
+changed to the greenhouse webcam once it is set up.
+Finally, I attempted to retrieve data from a website using JSON, which appears to be working,
+however I did not have time to put any real data online and it only returns null.  In the end, my
+app ended up more like a proof of concept, with things looking like they would have if everything
+worked as intended.  However, it would need more work before it was truly finished.
