@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//test
+
 public class Database extends AsyncTask<String, Integer, String> {
 
     private String getJSON(String url, int timeout) {
