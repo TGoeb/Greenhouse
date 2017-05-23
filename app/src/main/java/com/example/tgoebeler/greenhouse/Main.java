@@ -15,19 +15,20 @@ import android.widget.VideoView;
 
 public class Main extends AppCompatActivity {
 
+    // TextViews for the humidity and temperature and Strings which are their content
     private final String TAG = this.getClass().getName();
     private TextView tempText;
     private String insideTemp;
     private String outsideTemp;
 
-    private TextView humidTxt;
-    private String insideHumid;
-    private String outsideHumid;
+    private static TextView humidTxt;
+    private static String insideHumid;
+    private static String outsideHumid;
 
     private Button webcamButton;
 
-    private Database database;
-    private String text;
+    // test variable for getting JSON data
+    public static String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +39,14 @@ public class Main extends AppCompatActivity {
 
         Log.i(TAG, "onCreate");
 
+        // sets the temperature and humidity TextViews
         tempText = (TextView) findViewById(R.id.tempText);
         setTempTxt("70", "60");
 
         humidTxt = (TextView) findViewById(R.id.humidityText);
         setHumidTxt("50", "40");
 
+        // OnClickListener for the webcam button, which opens the video
         webcamButton = (Button) findViewById(R.id.webcamButton);
         webcamButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +59,7 @@ public class Main extends AppCompatActivity {
         });
 
         Database database = new Database();
-        text = database.getJSON("http://ephemeraltech.com/demo/android_tutorial20.php", 10000);
-        setHumidTxt("50", text);
+        database.execute("http://ephemeraltech.com/demo/android_tutorial20.php");
     }
 
     @Override
@@ -81,13 +83,17 @@ public class Main extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // sets the text of the temperature TextView
+    // the first string is for the inside temperature, the second string is the outside temperature
     public void setTempTxt(String newInside, String newOutside) {
         insideTemp = newInside;
         outsideTemp = newOutside;
         tempText.setText("Inside Temperature: "+ insideTemp + "\nOutside Temperature: " + outsideTemp);
     }
 
-    public void setHumidTxt(String newInside, String newOutside) {
+    // sets the text of the humidity TextView
+    // the first string is for the inside humidity, the second string is the outside humidity
+    public static void setHumidTxt(String newInside, String newOutside) {
         insideHumid = newInside;
         outsideHumid = newOutside;
         humidTxt.setText("Inside Humidity: "+ insideHumid + "\nOutside Humidity: " + outsideHumid);

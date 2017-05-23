@@ -1,5 +1,7 @@
 package com.example.tgoebeler.greenhouse;
 
+import android.os.AsyncTask;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,9 +11,9 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Database {
+public class Database extends AsyncTask<String, Integer, String> {
 
-    public String getJSON(String url, int timeout) {
+    private String getJSON(String url, int timeout) {
         HttpURLConnection c = null;
         try {
             URL u = new URL(url);
@@ -52,5 +54,16 @@ public class Database {
             }
         }
         return null;
+    }
+
+    @Override
+    protected String doInBackground(String... params) {
+        return getJSON(params[0], 10000);
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        Main.text = result;
+        Main.setHumidTxt("50", result);
     }
 }
